@@ -1,0 +1,12 @@
+<h1 class="my-3">Create a new Rendering Project</h1>
+
+<form action="<%= url("/projects/new") %>" method="post">
+    <div class="form-group">
+        <label for="name">Project Name</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="My Project" required>
+        <label for="icon" class="my-1">Project Icon</label>
+        <input tyoe="text" name="icon" class="form-control" id="icon">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Project</button>
+</form>

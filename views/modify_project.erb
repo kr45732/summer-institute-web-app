@@ -1,0 +1,18 @@
+<h1 class="my-3">Modify a Rendering Project</h1>
+
+<form action="<%= url("/") %>" method="post" class="pb-1">
+    <div class="form-group">
+        <label for="name">Project Name</label>
+        <input type="hidden" name="old_name" value="<%= @config['old_name'] %>">
+        <input type="text" name="name" class="form-control" id="name" value="<%= @config['name'] %>" required>
+        <label for="icon" class="my-1">Project Icon</label>
+        <input tyoe="text" name="icon" class="form-control" id="icon" value="<%= @config['icon'] %>">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modify Project</button>
+</form>
+
+<form action="<%= url("/") %>" method="post">
+    <input type="hidden" name="dir" value="<%= @config['old_name'] %>">
+    <button type="submit" class="btn btn-danger">Delete Project</button>
+</form>
