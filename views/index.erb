@@ -2,4 +2,33 @@
   <%= title %>
 </h1>
 
-Hello world!
+<h2 class="my-1">Projects</h2>
+
+<div class='row'>
+  <ol class='list-group list-group-horizontal flex-wrap col-md-12'>
+    <% if @project_dirs.empty? %>
+      <a href='<%= url("/projects/new") %>' class="text-center">
+        <li class='list-group-item btn btn-outline-dark m-3 border rounded'>
+          <i class='fas fa-fw fa-plus fa-5x text-primary'></i>
+          <p>Create Project<p/>
+        </li>
+      </a>
+    <% end %>
+
+    <% @project_dirs.each do |dir| %>
+    <a href='<%= url("/projects/#{dir}") %>' class="text-center">
+      <li class='list-group-item btn btn-outline-dark m-3 border rounded'>
+        <% if @configs[dir].key?("icon") %>
+          <img class = "fas fa-fw fa-5x text-primary" style="display: block" src=<%= @configs[dir]["icon"] %>
+        <% else %>
+          <i class='fas fa-fw fa-camera fa-5x text-primary'></i>
+        <% end %>
+        <p><%= @configs[dir]["name"] %><p/>
+        <form action="<%= url("/modify/#{dir}") %>" method="get">
+          <button type="submit" class="btn btn-secondary">Modify</button>
+        </form>
+      </li>
+    </a>
+    <% end %>
+  </ol>
+</div>
